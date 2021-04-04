@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartWheater_API", "SmartWheater_API\SmartWheater_API.csproj", "{5B7588A0-D5A0-4B1E-9944-E7F07ACA5290}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B7588A0-D5A0-4B1E-9944-E7F07ACA5290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B7588A0-D5A0-4B1E-9944-E7F07ACA5290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B7588A0-D5A0-4B1E-9944-E7F07ACA5290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B7588A0-D5A0-4B1E-9944-E7F07ACA5290}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E917A0B5-F1FC-43CE-952C-B9E5A05EEC63}
+	EndGlobalSection
+EndGlobal
