@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using SmartWheater_API.Areas.Model;
 using SmartWheater_API.Context;
+using SmartWheater_API.Model;
 using SmartWheater_API.Repository;
 
 namespace SmartWheater_API.Areas.Repository
 {
     public static class UserRepository
     {
-        public static UserModel Get(UserModel user)
+        public static UserModel Get(UserRequest user)
         {
             UserContextDB genericContext = new UserContextDB();
             return genericContext.UserCollection.Find(m => m.username == user.username && m.password == user.password).FirstOrDefault();

@@ -1,6 +1,7 @@
 ﻿using SmartWheater_API.Areas.Model;
 using SmartWheater_API.Areas.Repository;
 using SmartWheater_API.Interface;
+using SmartWheater_API.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace SmartWheater_API.DomainModel
             UserRepository.Delete(user);
         }
 
-        public UserModel GetUser(UserModel model)
+        public UserModel GetUser(UserRequest model)
         {
             return UserRepository.Get(model);
         }
