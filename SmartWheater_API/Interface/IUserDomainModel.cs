@@ -1,4 +1,5 @@
 ﻿using SmartWheater_API.Areas.Model;
+using SmartWheater_API.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace SmartWheater_API.Interface
 {
     interface IUserDomainModel
     {
-        UserModel GetUser(UserModel model);
+        UserModel GetUser(UserRequest model);
         void Insert(UserModel model);
         void Delete(string user);
     }
