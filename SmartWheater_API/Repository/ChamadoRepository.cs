@@ -12,12 +12,25 @@ namespace TCC_API_SmartWeather.Areas.Repository
     public class ChamadoRepository
     {
 
-        public void Insert(ChamadoModel chamado)
+        public void Insert(ChamadoRequest chamado)
         {
+            ChamadoModel model = new ChamadoModel()
+            {
+                DateClosed = chamado.DateClosed,
+                DateOpen = chamado.DateOpen,
+                DescCalled = chamado.DescCalled,
+                FarmeSize = chamado.FarmeSize,
+                IdPriority = chamado.IdPriority,
+                IdProblem = chamado.IdProblem,
+                NameFarmer = chamado.NameFarmer,
+                NameTec = chamado.NameTec,
+                Sla = chamado.Sla,
+                StatusCalled = chamado.StatusCalled        
+            };
             ChamadoContextDB contextDB = new ChamadoContextDB();
             var identity = contextDB.ChamadoCollection.Find(Builders<ChamadoModel>.Filter.Empty).Sort(Builders<ChamadoModel>.Sort.Descending("id")).Limit(1).FirstOrDefault();
-            chamado.id = (identity==null)?0:identity.id+1;
-            contextDB.ChamadoCollection.InsertOne(chamado);
+            model.id = (identity==null)?0:identity.id+1;
+            contextDB.ChamadoCollection.InsertOne(model);
 
         }
         public void Update(ChamadoModel chamado)

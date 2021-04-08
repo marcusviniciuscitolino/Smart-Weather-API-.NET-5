@@ -27,7 +27,7 @@ namespace SmartWheater_API.Areas.DomainModel
             return repository.GetChamado(idChamado);
         }
 
-        public void Insert(ChamadoModel chamado)
+        public void Insert(ChamadoRequest chamado)
         {
             repository.Insert(chamado);
         }

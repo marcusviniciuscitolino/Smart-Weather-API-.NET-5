@@ -46,3 +46,4 @@ C:\Users\Usuario\source\repos\SmartWheater_API\SmartWheater_API\bin\Debug\net5.0
 C:\Users\Usuario\source\repos\SmartWheater_API\SmartWheater_API\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\Usuario\source\repos\SmartWheater_API\SmartWheater_API\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\Usuario\source\repos\SmartWheater_API\SmartWheater_API\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
+D:\Projetos\Smart-Wheater-API-.NET-5\SmartWheater_API\obj\Debug\net5.0\SmartWheater_API.pdb

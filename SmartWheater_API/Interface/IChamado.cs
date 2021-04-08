@@ -10,7 +10,7 @@ namespace SmartWheater_API.Areas.Interface
     {
         IList<ChamadoModel> GetChamados();
         IList<ChamadoModel> GetChamados(int idChamado);
-        void Insert(ChamadoModel chamado);
+        void Insert(ChamadoRequest chamado);
         void Update(ChamadoModel chamado);
         void Delete(int id);
     }
