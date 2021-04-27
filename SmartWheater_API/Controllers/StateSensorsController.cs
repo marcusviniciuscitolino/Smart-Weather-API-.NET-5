@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using RestSharp;
 using SmartWheater_API.DomainModel;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,19 +13,37 @@ namespace SmartWheater_API.Controllers
     [Route("api/[controller]")]
     public class StateSensorsController : Controller
     {
+
         private StateSensorsDomainModel domainModel = new StateSensorsDomainModel();
+        private static string entities = "http://18.219.131.199:1026/v2/entities";
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<dynamic> Get()
+        public string Get()
         {
-            return domainModel.GetStation();
+            var client = new RestClient(entities);
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("fiware-service", "helixiot");
+            request.AddHeader("fiware-servicepath", "/");
+            IRestResponse response = client.Execute(request);
+            return response.Content;
+            //return Json(response.Content);
+            //return domainModel.GetStation();
         }
 
         // GET api/<controller>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{station}")]
+        public string Get(string station)
         {
-            return "value";
+            var client = new RestClient(string.Concat(entities, "/urn:", station));
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("fiware-service", "helixiot");
+            request.AddHeader("fiware-servicepath", "/");
+            IRestResponse response = client.Execute(request);
+            return response.Content;
         }
 
         // POST api/<controller>
