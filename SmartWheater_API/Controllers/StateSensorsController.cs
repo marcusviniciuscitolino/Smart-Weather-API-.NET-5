@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
 using SmartWheater_API.DomainModel;
+using SmartWheater_API.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -63,5 +64,14 @@ namespace SmartWheater_API.Controllers
         public void Delete(int id)
         {
         }
+        // GET api/<controller>/5
+        [HttpGet("{station}/{attr}")]
+        public IEnumerable<StationModel> GetStationAtrr(string station,string attr)
+        {
+            string statioSend = "sth_/_urn:ngsi-ld:" + station;
+            return domainModel.GetStation(statioSend, attr);
+        }
+
+
     }
 }

@@ -1,4 +1,6 @@
 ﻿using MongoDB.Driver;
+using SmartWheater_API.Context;
+using SmartWheater_API.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +10,13 @@ namespace SmartWheater_API.Repository
 {
     public class StateSensorsRepository
     {
-        public IList<dynamic> GetStateSensors(int id = 0)
+        public IList<StationModel> GetStateSensors(string stationID, string attrName )
         {
-            GenericContextRepository dbContext = new GenericContextRepository();
-            List<dynamic> listaNotas = dbContext.StateSensors.Find(m => true).ToList();
-            return listaNotas;
+            var filter =Builders<StationModel>.Filter.Eq("attrName", attrName);
+            //sth_/_urn:ngsi-ld:station:006_station
+            StationContext station = new StationContext(stationID);
+            List<StationModel> dynamics = station.UserCollection.Find(filter).ToList();
+            return dynamics;
         }
     }
 }

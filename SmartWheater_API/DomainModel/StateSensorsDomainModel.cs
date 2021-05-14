@@ -1,4 +1,5 @@
 ﻿using SmartWheater_API.Interface;
+using SmartWheater_API.Model;
 using SmartWheater_API.Repository;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,9 @@ namespace SmartWheater_API.DomainModel
             throw new NotImplementedException();
         }
 
-        public IList<dynamic> GetStation()
+        public IList<StationModel> GetStation(string station , string attr)
         {
-           return repository.GetStateSensors();
+           return repository.GetStateSensors(station, attr);
         }
 
         public IList<dynamic> GetStation(int idStation)

@@ -45,10 +45,14 @@ namespace TCC_API_SmartWeather.Areas.Repository
         }
         public IList<ChamadoModel> GetChamado(int id = 0)
         {
+            StationContext station = new StationContext("sth_/_urn:ngsi-ld:station:006_station");
+            List<StationModel> dynamics = station.UserCollection.Find(Builders<StationModel>.Filter.Empty).ToList();
             ChamadoContextDB dbContext = new ChamadoContextDB();
             var filter = (id !=0)?Builders<ChamadoModel>.Filter.Eq("id", id):Builders<ChamadoModel>.Filter.Empty;
             List<ChamadoModel> chamados = dbContext.ChamadoCollection.Find(filter).ToList();
             return chamados;
+
+
         }
     }
 }
