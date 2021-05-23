@@ -13,5 +13,6 @@ namespace SmartWheater_API.Interface
         int Insert(dynamic Station);
         bool UpdateStation(dynamic Station);
         bool DeletStation(dynamic id);
+        IList<StationModel> GetStation(string station);
     }
 }

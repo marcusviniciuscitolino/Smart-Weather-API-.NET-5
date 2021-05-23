@@ -26,6 +26,11 @@ namespace SmartWheater_API.DomainModel
             throw new NotImplementedException();
         }
 
+        public IList<StationModel> GetStation(string station)
+        {
+            return repository.GetStateSensors(station);
+        }
+
         public int Insert(dynamic Station)
         {
             throw new NotImplementedException();

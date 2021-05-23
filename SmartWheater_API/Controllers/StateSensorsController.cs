@@ -66,10 +66,17 @@ namespace SmartWheater_API.Controllers
         }
         // GET api/<controller>/5
         [HttpGet("{station}/{attr}")]
-        public IEnumerable<StationModel> GetStationAtrr(string station,string attr)
+        public IEnumerable<StationModel> GetStationAtrr(string station, string attr)
         {
             string statioSend = "sth_/_urn:ngsi-ld:" + station;
             return domainModel.GetStation(statioSend, attr);
+        }
+        // GET api/<controller>/5
+        [HttpGet("GetStation/{station}")]
+        public IEnumerable<StationModel> GetStation(string station)
+        {
+            string statioSend = "sth_/_urn:ngsi-ld:" + station;
+            return domainModel.GetStation(statioSend);
         }
 
 
