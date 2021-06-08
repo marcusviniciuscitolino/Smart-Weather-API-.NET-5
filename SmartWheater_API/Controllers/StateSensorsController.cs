@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
 using SmartWheater_API.DomainModel;
@@ -19,6 +20,7 @@ namespace SmartWheater_API.Controllers
         private static string entities = "http://18.219.131.199:1026/v2/entities";
         // GET: api/<controller>
         [HttpGet]
+        [Authorize]
         public string Get()
         {
             var client = new RestClient(entities);
@@ -29,12 +31,11 @@ namespace SmartWheater_API.Controllers
             request.AddHeader("fiware-servicepath", "/");
             IRestResponse response = client.Execute(request);
             return response.Content;
-            //return Json(response.Content);
-            //return domainModel.GetStation();
         }
 
         // GET api/<controller>/5
         [HttpGet("{station}")]
+        [Authorize]
         public string Get(string station)
         {
             var client = new RestClient(string.Concat(entities, "/urn:", station));
@@ -49,23 +50,27 @@ namespace SmartWheater_API.Controllers
 
         // POST api/<controller>
         [HttpPost]
+        [Authorize]
         public void Post([FromBody]string value)
         {
         }
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
+        [Authorize]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
+        [Authorize]
         public void Delete(int id)
         {
         }
         // GET api/<controller>/5
         [HttpGet("{station}/{attr}")]
+        [Authorize]
         public IEnumerable<StationModel> GetStationAtrr(string station, string attr)
         {
             string statioSend = "sth_/_urn:ngsi-ld:" + station;
@@ -73,6 +78,7 @@ namespace SmartWheater_API.Controllers
         }
         // GET api/<controller>/5
         [HttpGet("GetStation/{station}")]
+        [Authorize]
         public IEnumerable<StationModel> GetStation(string station)
         {
             string statioSend = "sth_/_urn:ngsi-ld:" + station;
